@@ -37,7 +37,7 @@ const SubgroupItemPage = () => {
           borderWidth: 1,
           borderColor: 'black',
         }}
-        href={`/group/a/long/path/${groupId}`}>
+        href={`/group/${groupId}`}>
           <Text
           style={{
             color: 'border',
@@ -47,7 +47,7 @@ const SubgroupItemPage = () => {
 
         <Pressable onPress={() => {
           console.log('pressed');
-          router.push(`/group/a/long/path/${groupId}`);
+          router.push(`/group/${groupId}`);
         }}
         style={{
           backgroundColor: 'white',

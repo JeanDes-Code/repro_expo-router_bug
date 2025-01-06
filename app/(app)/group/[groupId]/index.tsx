@@ -27,7 +27,7 @@ const GroupPage = () => {
           justifyContent: 'center',
           display: 'flex',
         }}
-        href={`/group/a/long/path/${groupId}/item/${subgroupId}`}>
+        href={`/group/${groupId}/item/${subgroupId}`}>
         <Text style={{
         color: 'black',
         fontWeight: 'bold',

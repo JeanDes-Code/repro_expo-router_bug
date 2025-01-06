@@ -18,7 +18,7 @@ const HomePage = () => {
         borderRadius: 5,
         borderWidth: 1,
         borderColor: 'black',
-      }} href={`/group/a/long/path/1`}>
+      }} href={`/group/1`}>
         <Text>Go to group</Text>
       </Link>
       </View>;
