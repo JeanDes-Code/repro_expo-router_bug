@@ -21,6 +21,9 @@ When trying to navigate from a nested route `/[groupId]/(subgroup)/item` back to
 3. Navigate to `/[groupId]/(subgroup)/item`
 4. Try to navigate back to `/[groupId]` using either `<Link />` or `router.push()`
 
+## Live Demo
+https://repro-expo-router-bug.netlify.app/
+
 ## Environment
 
 - expo: ~52.0.23
