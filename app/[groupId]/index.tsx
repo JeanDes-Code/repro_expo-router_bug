@@ -8,7 +8,7 @@ const GroupPage = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>GroupPage for group {groupId}</Text>
-      <Link href={`/${groupId}/item/${subgroupId}`} style={styles.link}>
+      <Link href={`/${groupId}/item`} style={styles.link}>
         <Text style={styles.linkText}>Go to subgroup {subgroupId}</Text>
       </Link>
     </View>
