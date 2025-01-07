@@ -1,50 +1,38 @@
-# Welcome to your Expo app 👋
+# Expo Router Bug Reproduction
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This repository demonstrates a navigation bug in Expo Router where navigating from `/[groupId]/(subgroup)/item` back to `/[groupId]` fails silently. This issue has been reported in [expo/expo#33985](https://github.com/expo/expo/issues/33985).
 
-## Get started
+## The Bug
+
+When trying to navigate from a nested route `/[groupId]/(subgroup)/item` back to `/[groupId]`, both `<Link />` and `router.push()` fail silently with no route changes or error messages. The issue appears to be related to the presence of `_layout.tsx` in `[groupId]/(subgroup)/_layout.tsx`.
+
+## Steps to Reproduce
 
 1. Install dependencies
-
    ```bash
    npm install
    ```
 
 2. Start the app
-
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Navigate to `/[groupId]/(subgroup)/item`
+4. Try to navigate back to `/[groupId]` using either `<Link />` or `router.push()`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Environment
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- expo: ~52.0.23
+- expo-router: ~4.0.15
+- react: 18.3.1
+- react-native: 0.76.5
 
-## Get a fresh project
+## Additional Notes
 
-When you're ready, run:
+- The issue affects web platforms (not tested on iOS/Android)
+- Removing `_layout.tsx` in `[groupId]/(subgroup)/_layout.tsx` resolves the issue
+- Navigation to the homepage ('/') works correctly
+- Navigation to invalid routes correctly shows the 404 page
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+For more details, please refer to the [issue on GitHub](https://github.com/expo/expo/issues/33985).
